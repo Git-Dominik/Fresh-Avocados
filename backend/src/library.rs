@@ -1,5 +1,5 @@
 use toml;
-use std::{fs::{self, File}, io::{Read, Write}};
+use std::{fs::{self, File, OpenOptions}, io::{Read, Write}};
 use serde::{Serialize, Deserialize};
 
 // public = gebruik van buitenaf bestand
@@ -60,7 +60,7 @@ impl Library {
     }
 
     fn save(&self) {
-        let mut file = File::open("library.toml").unwrap();
+        let mut file = OpenOptions::new().write(true).open("library.toml").unwrap();
         let data = toml::to_string(&self.file).unwrap();
         file.write_all(data.as_bytes()).unwrap();
     }
