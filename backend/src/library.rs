@@ -2,6 +2,8 @@ use toml;
 use std::{fs::{self, File, OpenOptions}, io::{Read, Write}};
 use serde::{Serialize, Deserialize};
 
+use anyhow::{ Error, Result };
+
 // public = gebruik van buitenaf bestand
 
 #[derive(Serialize, Deserialize)]
@@ -20,16 +22,16 @@ pub struct Library {
 }
 
 impl Library {
-    pub fn new() -> Library {
+    pub fn new() -> Result<Library, Error> {
         match fs::exists("library.toml") {
             Ok(true) => {
                 let mut file = File::open("library.toml").unwrap();
                 let mut file_content = String::new();
                 file.read_to_string(&mut file_content).unwrap();
 
-                Library {
+                Ok(Library {
                     file: toml::from_str(&file_content).unwrap()
-                }
+                })
             },
             Ok(false) => {
                 let toml_string = toml::to_string(&LibraryFile {
@@ -39,13 +41,13 @@ impl Library {
                 let mut file = File::create("library.toml").unwrap();
                 file.write_all(toml_string.as_bytes()).unwrap();
 
-                Library {
+                Ok(Library {
                     file: LibraryFile {
                         items: Vec::new(),
                     }
-                }
+                })
             },
-            Err(e) => panic!("Error: {}", e),
+            Err(e) => Err(e.into()),
         }
     }
 
