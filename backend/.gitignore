@@ -9,3 +9,4 @@
 
 # project files
 library.toml
+.env
