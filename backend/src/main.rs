@@ -3,7 +3,11 @@
 mod library;
 use library::Library;
 
+use dotenv::dotenv;
+
 fn main() {
+    dotenv().ok();
+
     let mut lib = Library::new().unwrap();
 
     lib.add(library::LibraryItem {

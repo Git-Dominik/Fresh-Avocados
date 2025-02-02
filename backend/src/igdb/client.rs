@@ -65,7 +65,6 @@ impl Client {
         self.request_raw(query_string.as_str()).await
     }
 
-
     async fn check_access_token(&mut self) -> Result<(), IGDBApiError> {
         if self.client_access_token.is_empty() {
             use microjson::JSONValue;
@@ -105,7 +104,7 @@ impl Client {
         &mut self,
         query: &str,
     ) -> Result<M, IGDBApiError> {
-        self.request_api(query,  endpoint_name::<M>()).await
+        self.request_api(query,  self.endpoint_url::<M>()).await
     }
 
     /// Request the IGDB API for a protobuf response for the count endpoint.
@@ -145,7 +144,7 @@ impl Client {
         &mut self,
         query: &str,
     ) -> Result<Count, IGDBApiError> {
-        self.request_api(query, format!("{}/count", self.endpoint_url::<M>())).await
+        self.request_api(query, self.endpoint_url::<M>()).await
     }
 
 
@@ -157,6 +156,9 @@ impl Client {
         if let Err(error) = self.check_access_token().await {
             return Err(error);
         }
+
+        println!("Requesting: {}", url);
+
         let bytes = self
             .client
             .post(url)

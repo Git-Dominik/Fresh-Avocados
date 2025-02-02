@@ -6,7 +6,8 @@ use igdb::igdb::GameResult;
 
 #[tauri::command]
 async fn get_games() {
-    let mut client = Client::new("ikjpiuua1mns8fbz83ccwtsxk8p3aw", "2b3b3a29ng97rfxoxqfj0j7e6yh12e");
+    // get client + secret from env extracted from dotenv
+    let mut client = Client::default();
 
     let query = ApicalypseBuilder::default()
         .filter("id > 1337")
