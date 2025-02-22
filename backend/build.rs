@@ -1,8 +1,3 @@
-use std::io::Result;
-
-fn main() -> Result<()> {
+fn main() {
     tauri_build::build();
-    prost_build::compile_protos(&["src/igdb/igdbapi.proto"], &["src/igdb"])?;
-
-    Ok(())
 }

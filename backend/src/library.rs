@@ -5,7 +5,6 @@ use serde::{Serialize, Deserialize};
 use anyhow::{ Error, Result };
 
 // public = gebruik van buitenaf bestand
-
 #[derive(Serialize, Deserialize)]
 pub struct LibraryItem {
     pub name: String,

@@ -4,3 +4,7 @@ backend/target
 backend/library.toml
 backend/.idea
 frontend/.idea
+.env*
+.flaskenv*
+!.env.project
+!.env.vault
