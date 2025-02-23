@@ -42,6 +42,24 @@ impl IGDB {
 
         res.json::<Vec<Game>>().await.unwrap()
     }
+    
+    pub async fn get_game_by_id(&self, game_id: u32) -> Option<Game> {
+        let res = self.client
+            .post("https://api.igdb.com/v4/games")
+            .header("Client-ID", self.client_id.as_str())
+            .header("Authorization", format!("Bearer {}", self.client_secret))
+            .body(format!(
+                "fields id, name, storyline, rating, genres, cover; 
+                where id = {}; 
+                limit 1;", 
+                game_id
+            ))
+            .send()
+            .await
+            .expect("failed to send request");
+
+        res.json::<Vec<Game>>().await.unwrap().into_iter().next()
+    }
 
     pub async fn get_cover(&self, cover_id: u32) -> Cover {
         let res = self.client

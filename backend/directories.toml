@@ -1,0 +1,87 @@
+[[emulators]]
+name = "codex"
+paths = [
+    "%public%/Public Documents/Steam/CODEX/{app_id}/achievements.ini",
+    "%appdata%/Steam/CODEX/{app_id}/achievements.ini"
+]
+
+[[emulators]]
+name = "rune"
+paths = [
+    "%public%/Public Documents/Steam/RUNE/{app_id}/achievements.ini"
+]
+
+[[emulators]]
+name = "online_fix"
+paths = [
+    "%public%/Public Documents/OnlineFix/{app_id}/Stats/Achievements.ini",
+    "%public%/Public Documents/OnlineFix/{app_id}/Achievements.ini"
+]
+
+[[emulators]]
+name = "goldberg"
+paths = [
+    "%appdata%/Goldberg SteamEmu Saves/{app_id}/achievements.json",
+    "%appdata%/GSE Saves/{app_id}/achievements.json"
+]
+
+[[emulators]]
+name = "userstats"
+paths = []
+
+[[emulators]]
+name = "rld"
+paths = [
+    "C:/ProgramData/RLD!/{app_id}/achievements.ini",
+    "C:/ProgramData/Steam/Player/{app_id}/stats/achievements.ini",
+    "C:/ProgramData/Steam/RLD!/{app_id}/stats/achievements.ini",
+    "C:/ProgramData/Steam/dodi/{app_id}/stats/achievements.ini"
+]
+
+[[emulators]]
+name = "empress"
+paths = [
+    "%appdata%/EMPRESS/remote/{app_id}/achievements.json",
+    "%public%/Public Documents/EMPRESS/{app_id}/remote/{app_id}/achievements.json"
+]
+
+[[emulators]]
+name = "skidrow"
+paths = [
+    "%documents%/SKIDROW/{app_id}/SteamEmu/UserStats/achiev.ini",
+    "%documents%/Player/{app_id}/SteamEmu/UserStats/achiev.ini",
+    "%localappdata%/SKIDROW/{app_id}/SteamEmu/UserStats/achiev.ini"
+]
+
+[[emulators]]
+name = "cream_api"
+paths = [
+    "%appdata%/CreamAPI/{app_id}/stats/CreamAPI.Achievements.cfg"
+]
+
+[[emulators]]
+name = "smart_steam_emu"
+paths = [
+    "%appdata%/SmartSteamEmu/{app_id}/User/Achievements.ini"
+]
+
+[[emulators]]
+name = "three_dm"
+paths = []
+
+[[emulators]]
+name = "flt"
+paths = []
+
+[[emulators]]
+name = "rle"
+paths = [
+    "%appdata%/RLE/{app_id}/achievements.ini",
+    "%appdata%/RLE/{app_id}/Achievements.ini"
+]
+
+[[emulators]]
+name = "razor1911"
+paths = [
+    "%appdata%/.1911/{app_id}/achievement"
+]
